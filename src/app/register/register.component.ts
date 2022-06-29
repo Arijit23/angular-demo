@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -10,7 +10,7 @@ export class RegisterComponent implements OnInit {
   pageTitle = 'Welcome to registration page';
   name = 'Welcome Arijit';
 
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit(): void {
   }
@@ -21,6 +21,14 @@ export class RegisterComponent implements OnInit {
     {
       console.log('Button was clicked');
       console.log($event)
+    }
+  }
+
+  redirectToRegistration($event: any)
+  {
+    if($event)
+    {
+      this.router.navigate(['/register']);
     }
   }
 }
